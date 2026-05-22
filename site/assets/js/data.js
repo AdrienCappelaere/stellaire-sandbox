@@ -4,7 +4,7 @@ window.STELLAIRE_PRODUCTS = [
     id: "tel-001", slug: "telescope-debutant-70", category: "telescopes",
     name: "Télescope débutant 70/700",
     price: 149.00,
-    image: "https://images-assets.nasa.gov/image/PIA17563/PIA17563~thumb.jpg",
+    image: "https://images.unsplash.com/photo-1609000142140-fb449c139c82?auto=format&fit=crop&w=600&h=600&q=80",
     shortDesc: "Idéal pour découvrir le ciel.",
     longDesc: "Le télescope d'initiation idéal pour découvrir le ciel : 70mm d'ouverture pour bien capter la lumière des étoiles, 700mm de focale pour des grossissements confortables jusqu'à 140x. Sa monture azimutale ultra-légère se manipule intuitivement, parfaite pour observer en famille. Livré avec deux oculaires interchangeables (10mm pour les détails, 25mm pour les grands champs), un chercheur point rouge, et un trépied aluminium ajustable de 70 à 130 cm. Sa prise en main demande moins de 10 minutes : aucune nécessité d'avoir des bases d'astronomie pour commencer.",
     features: [
@@ -21,7 +21,7 @@ window.STELLAIRE_PRODUCTS = [
     id: "tel-002", slug: "dobson-200mm", category: "telescopes",
     name: "Dobson 200mm",
     price: 549.00,
-    image: "https://images-assets.nasa.gov/image/PIA22946/PIA22946~thumb.jpg",
+    image: "https://images.unsplash.com/photo-1600456548090-7d1b3f0bbea5?auto=format&fit=crop&w=600&h=600&q=80",
     shortDesc: "Le rapport qualité/prix incontournable.",
     longDesc: "Notre best-seller. Le Dobson 200mm est sans doute le meilleur compromis ouverture / prix / encombrement du marché : 200mm de diamètre suffisent à révéler la structure spirale des galaxies les plus brillantes, les bras nébuleux d'Orion, et bien sûr la Lune dans un niveau de détail saisissant. La monture Dobson — une plateforme rotative en bois — supprime l'apprentissage des coordonnées équatoriales : on pointe à l'œil, on suit en poussant doucement. Les deux oculaires Plossl 25mm et 9mm fournis couvrent l'essentiel des usages, et l'instrument se démonte en deux parties pour rentrer dans n'importe quel coffre de voiture.",
     features: [
@@ -38,7 +38,7 @@ window.STELLAIRE_PRODUCTS = [
     id: "tel-003", slug: "lunette-astro-90", category: "telescopes",
     name: "Lunette astronomique 90/900 apochromatique ED traitée multicouches — édition spéciale Stellaire 2026",
     price: 799.00,
-    image: "https://images-assets.nasa.gov/image/PIA21472/PIA21472~thumb.jpg",
+    image: "https://images.unsplash.com/photo-1610457642191-05328cdf34ff?auto=format&fit=crop&w=600&h=600&q=80",
     shortDesc: "Optique apochromatique haut de gamme.",
     longDesc: "L'instrument de référence pour qui veut une optique sans compromis. Cette lunette ED 90mm apochromatique élimine totalement les franges colorées qui parasitent l'observation des étoiles brillantes et des planètes avec les optiques d'entrée de gamme. Image piquée bord à bord, contrastes profonds, idéale pour la photographie astronomique. La monture équatoriale motorisée incluse permet le suivi automatique des objets célestes — indispensable pour des poses longues et pour profiter d'une cible sans avoir à corriger manuellement la rotation terrestre.",
     features: [
@@ -55,7 +55,7 @@ window.STELLAIRE_PRODUCTS = [
     id: "obs-001", slug: "jumelles-10x50", category: "observation",
     name: "Jumelles 10x50 astronomie",
     price: 89.00,
-    image: "https://images-assets.nasa.gov/image/PIA12348/PIA12348~thumb.jpg",
+    image: "https://images.unsplash.com/photo-1559780528-19fc03b3a725?auto=format&fit=crop&w=600&h=600&q=80",
     shortDesc: "Prises en main, idéales constellations.",
     longDesc: "Les jumelles 10x50 sont l'instrument le plus polyvalent qui soit pour démarrer en astronomie : aussi à l'aise sur la Voie lactée que sur les amas ouverts comme les Pléiades ou la Crèche, elles permettent une expérience immersive très différente du télescope. Leur grand champ (6,5°) restitue le ciel comme à l'œil nu mais 100 fois plus lumineux. Le traitement multicouches des lentilles préserve la transmission lumineuse même en bord de champ. Sangle large et œilletons souples pour des longues sessions d'observation sans fatigue.",
     features: [
@@ -72,7 +72,7 @@ window.STELLAIRE_PRODUCTS = [
     id: "obs-002", slug: "oculaire-plossl-10", category: "observation",
     name: "Oculaire Plossl 10mm",
     price: 39.00,
-    image: "https://images-assets.nasa.gov/image/PIA22228/PIA22228~thumb.jpg",
+    image: "https://images.unsplash.com/photo-1453563391321-df71955e9289?auto=format&fit=crop&w=600&h=600&q=80",
     shortDesc: "Oculaire de qualité pour fort grossissement.",
     longDesc: "Oculaire Plossl 10mm 31.75mm.",
     brand: "Stellaire", sku: "STE-OBS-002"
@@ -81,7 +81,7 @@ window.STELLAIRE_PRODUCTS = [
     id: "obs-003", slug: "filtre-lunaire", category: "observation",
     name: "Filtre lunaire ND",
     price: 24.00,
-    image: "https://images-assets.nasa.gov/image/PIA00302/PIA00302~thumb.jpg",
+    image: "https://images.unsplash.com/photo-1595247191348-fd605f104467?auto=format&fit=crop&w=600&h=600&q=80",
     shortDesc: "Réduit l'éblouissement lunaire.",
     longDesc: "Sans ce filtre, l'observation de la Lune en pleine phase est éblouissante au point de gâcher l'expérience et de marquer la rétine pendant plusieurs minutes. Notre filtre ND-13% absorbe 87% de la lumière incidente sans altérer la balance des couleurs ni perdre en finesse. Se visse directement sur le coulant 31.75mm de votre oculaire — installation en 5 secondes. Indispensable dès que la Lune dépasse 50% d'illumination, recommandé toute l'année pour le confort visuel.",
     features: [
@@ -98,7 +98,7 @@ window.STELLAIRE_PRODUCTS = [
     id: "obs-004", slug: "cherche-etoile", category: "observation",
     name: "Chercheur point rouge",
     price: 32.00,
-    image: "https://images-assets.nasa.gov/image/PIA17046/PIA17046~thumb.jpg",
+    image: "https://images.unsplash.com/photo-1681680123992-5a4e23d34522?auto=format&fit=crop&w=600&h=600&q=80",
     shortDesc: "Pointer rapidement vos cibles.",
     longDesc: "Pointer un objet céleste avec un télescope sans chercheur, c'est comme chercher une mouche au plafond avec un microscope : impossible. Le chercheur point rouge projette un petit point lumineux rouge sur une vitre transparente, parfaitement aligné avec l'optique principale. Vous regardez à travers, vous placez le point sur la cible, vous regardez ensuite dans l'oculaire : la cible est dans le champ. La luminosité du point est ajustable (5 niveaux) pour ne pas éblouir en pleine nuit. Fixation queue d'aronde standard : compatible 95% des télescopes du marché.",
     features: [
@@ -115,7 +115,7 @@ window.STELLAIRE_PRODUCTS = [
     id: "liv-001", slug: "atlas-du-ciel", category: "livres",
     name: "Atlas du ciel nocturne",
     price: 34.90,
-    image: "https://images-assets.nasa.gov/image/PIA00154/PIA00154~thumb.jpg",
+    image: "https://images.unsplash.com/photo-1590010434276-ba3a98994476?auto=format&fit=crop&w=600&h=600&q=80",
     shortDesc: "L'ouvrage de référence en français.",
     longDesc: "L'ouvrage de chevet de tout astronome amateur francophone. 320 pages d'atlas raisonné : pour chaque constellation, une carte détaillée avec les étoiles jusqu'à magnitude 8, les objets du ciel profond significatifs (galaxies, amas, nébuleuses), et un court texte de présentation. Index complet Messier (M1 à M110) et NGC (objets sélectionnés). Cartes saisonnières en début d'ouvrage pour s'orienter d'un coup d'œil. Format relié, papier mat épais, lisible à la lampe rouge en bord d'oculaire.",
     features: [
@@ -132,7 +132,7 @@ window.STELLAIRE_PRODUCTS = [
     id: "liv-002", slug: "guide-objets-messier", category: "livres",
     name: "Guide des objets Messier",
     price: 22.50,
-    image: "https://images-assets.nasa.gov/image/PIA01970/PIA01970~thumb.jpg",
+    image: "https://images.unsplash.com/photo-1692342593304-9fb0b1bed6e4?auto=format&fit=crop&w=600&h=600&q=80",
     shortDesc: "110 objets, fiches détaillées.",
     longDesc: "Charles Messier a catalogué au XVIIIe siècle 110 objets célestes pour ne pas les confondre avec les comètes qu'il chassait. Ces 110 objets sont aujourd'hui les cibles de référence de tout astronome amateur : amas globulaires comme M13, galaxies comme M31 (Andromède) ou M51 (le Tourbillon), nébuleuses comme M42 (Orion) ou M57 (l'Anneau de la Lyre). Ce guide propose pour chaque objet : une fiche d'identité (constellation, magnitude, taille apparente), un conseil d'observation selon l'instrument disponible, et un croquis tel qu'on le voit à l'œil dans un télescope amateur.",
     features: [
@@ -149,7 +149,7 @@ window.STELLAIRE_PRODUCTS = [
     id: "liv-003", slug: "carte-tournante", category: "livres",
     name: "Carte tournante du ciel",
     price: 15.00,
-    image: "https://images-assets.nasa.gov/image/PIA11800/PIA11800~thumb.jpg",
+    image: "https://images.unsplash.com/photo-1537420327992-d6e192287183?auto=format&fit=crop&w=600&h=600&q=80",
     shortDesc: "Repérez les constellations en un clin d'œil.",
     longDesc: "L'outil le plus simple pour s'orienter dans le ciel : on tourne la roue extérieure pour aligner la date et l'heure, et la carte affiche en direct les constellations visibles à ce moment précis depuis la France métropolitaine. Plus besoin d'application, pas de batterie qui se vide. Plastique souple résistant à l'humidité, format A4 — se glisse dans un sac de terrain.",
     features: [
@@ -166,7 +166,7 @@ window.STELLAIRE_PRODUCTS = [
     id: "dec-001", slug: "poster-voie-lactee", category: "deco",
     name: "Poster Voie Lactée NASA",
     price: 19.00,
-    image: "https://images-assets.nasa.gov/image/PIA23645/PIA23645~thumb.jpg",
+    image: "https://images.unsplash.com/photo-1501862700950-18382cd41497?auto=format&fit=crop&w=600&h=600&q=80",
     shortDesc: "Tirage qualité galerie 50x70cm.",
     longDesc: "Cette photographie panoramique haute définition de la Voie Lactée provient des archives publiques NASA. Tirage qualité galerie sur papier mat 250g, format 50x70cm, à encadrer pour décorer un bureau, une chambre ou un salon avec une vraie ambiance cosmique. Édition limitée numérotée. Idéal cadeau pour les passionnés.",
     features: [
@@ -183,7 +183,7 @@ window.STELLAIRE_PRODUCTS = [
     id: "dec-002", slug: "mug-constellations", category: "deco",
     name: "Mug Constellations",
     price: 14.50,
-    image: "https://images-assets.nasa.gov/image/PIA24033/PIA24033~thumb.jpg",
+    image: "https://images.unsplash.com/photo-1610632380989-680fe40816c6?auto=format&fit=crop&w=600&h=600&q=80",
     shortDesc: "88 constellations en céramique.",
     longDesc: "Un mug en céramique blanche imprimé en bleu nuit avec les 88 constellations officiellement reconnues par l'Union Astronomique Internationale. Chaque constellation est légendée discrètement. 350ml — la bonne contenance pour un café double ou un mug de chocolat chaud après une nuit d'observation. Compatible lave-vaisselle et micro-ondes.",
     features: [
