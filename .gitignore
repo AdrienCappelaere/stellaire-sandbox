@@ -1,0 +1,12 @@
+# Reference solution — private, do not commit
+reference/*
+!reference/.gitkeep
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Editor
+.vscode/
+.idea/
+*.swp
