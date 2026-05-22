@@ -18,6 +18,18 @@ Fournir un environnement réaliste où la candidate peut pratiquer de bout en bo
 
 Le projet est **un terrain de jeu, pas un cours**: il fournit un site contenant des problèmes SEO réalistes à découvrir, les exercices et les critères de validation. Les ressources théoriques restent celles, officielles, de Google. Le parcours suit l'ordre d'une mission agence réelle: **auditer, recommander, instrumenter, mesurer**.
 
+## 1.bis Profil de la candidate (contrainte structurante)
+
+La candidate est **habituée à intégrer GTM via un plugin WordPress** (interface graphique, champ "GTM-ID" à remplir). Elle n'a **pas l'habitude d'éditer du code source**, ne clone pas de repos Git en local, n'utilise pas de terminal. Le projet doit fonctionner sans qu'elle installe quoi que ce soit sur sa machine en dehors du navigateur.
+
+Conséquences sur le design:
+
+- **Édition du site = interface web GitHub uniquement** (clic sur le fichier → crayon → modifier → commit dans le navigateur). Pas de clone, pas d'IDE.
+- **Déploiement = automatique Vercel** sur chaque commit. Aucune action de sa part.
+- **Pose du snippet GTM = coller dans des balises de placeholder explicites** déjà préparées dans le HTML (voir 4.4 bis).
+- **Outils d'audit privilégiés**: à interface visuelle (Lighthouse intégré à Chrome, Screaming Frog UI, Search Console UI, validateur Schema en ligne). Pas de CLI, pas de scripts.
+- **Le cahier d'exercices doit être ultra-guidé sur les manipulations** (captures écran obligatoires pour les étapes d'édition GitHub et de configuration GTM), mais **laisser de l'autonomie sur la réflexion** (qu'auditer, quoi prioriser, quel KPI choisir).
+
 ## 2. Périmètre
 
 ### Inclus
@@ -132,6 +144,58 @@ Le fichier `tracking.js` expose une API `window.stellaire.track(eventName, paylo
 
 **Le site ne contient AUCUN snippet GTM ni GA4 par défaut.** Le `dataLayer` est initialisé (`window.dataLayer = window.dataLayer || []`), les pushs sont là, mais rien ne les consomme. C'est ce que la candidate ajoute.
 
+### 4.4 bis Mécanisme d'intégration "à la plugin" (un seul fichier à éditer)
+
+Pour reproduire l'expérience "plugin WordPress" à laquelle la candidate est habituée, le site centralise toutes les intégrations dans **un seul fichier**: `site/assets/js/integrations.js`. Chaque page HTML l'inclut très haut dans `<head>` via `<script src="/assets/js/integrations.js"></script>`. C'est le seul fichier qu'elle aura à éditer pour brancher GTM et Axeptio.
+
+Contenu initial du fichier (livré avec des placeholders à remplir):
+
+```javascript
+// ============================================================
+// integrations.js — branche GTM et Axeptio sur le site Stellaire
+// Édite uniquement ce fichier pour activer le tracking et la CMP.
+// ============================================================
+
+// --- BLOC 1: GTM ---------------------------------------------
+// 1. Crée ton conteneur GTM (web). Récupère ton ID au format GTM-XXXXXXX.
+// 2. Remplace GTM-XXXXXXX ci-dessous par ton ID. Commit. C'est tout.
+(function(w,d,s,l,i){
+  if (i === 'GTM-XXXXXXX') return; // tant que pas configuré, on ne charge rien
+  w[l]=w[l]||[];w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});
+  var f=d.getElementsByTagName(s)[0],j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';
+  j.async=true;j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;
+  f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-XXXXXXX');
+
+// --- BLOC 2: Axeptio (CMP) -----------------------------------
+// 1. Crée un projet Axeptio (gratuit), récupère ton clientId.
+// 2. Remplace YOUR-CLIENT-ID ci-dessous. Configure la version de cookies dans Axeptio.
+window.axeptioSettings = {
+  clientId: "YOUR-CLIENT-ID",
+  cookiesVersion: "stellaire-base",
+};
+(function(d, s) {
+  if (window.axeptioSettings.clientId === "YOUR-CLIENT-ID") return; // pas configuré
+  var t = d.getElementsByTagName(s)[0], e = d.createElement(s);
+  e.async = true; e.src = "//static.axept.io/sdk.js";
+  t.parentNode.insertBefore(e, t);
+})(document, "script");
+```
+
+**Bénéfices:**
+
+- Un seul fichier à éditer pour activer/désactiver GTM et Axeptio → expérience proche d'un plugin
+- Les placeholders s'auto-désactivent tant qu'ils ne sont pas remplacés (pas de crash visible avant config)
+- Édition via l'interface web GitHub: clic sur `integrations.js` → crayon → modifier → "Commit changes" → Vercel redéploie en ~30s
+- Pas besoin d'IDE, de clone Git, de terminal
+
+**Limites assumées, à expliciter dans le cahier d'exercices** (et qui font partie de l'apprentissage):
+
+- Le snippet `<noscript>` GTM (pour navigateurs sans JS) n'est pas géré par cette approche, car JS-only. C'est acceptable en 2026 (>99% des users ont JS). Le cahier d'exercices le mentionne explicitement et propose en bonus de l'ajouter manuellement dans `index.html` si elle veut aller plus loin.
+- Le chargement de GTM est légèrement plus tardif qu'un snippet inline (1 requête HTTP de plus pour `integrations.js`). Acceptable pour ce projet.
+
+Pour le Consent Mode v2, le cahier d'exercices guide la candidate pour ajouter dans `integrations.js`, **avant le bloc GTM**, l'initialisation du consent par défaut (`denied`), puis pour configurer Axeptio pour qu'il appelle `gtag('consent', 'update', ...)` au consentement utilisateur.
+
 ### 4.5 Événement custom (exercice 4)
 
 L'exercice impose un événement **à câbler uniquement via GTM (Triggers + Variables), sans modifier le code source du site**.
@@ -192,8 +256,12 @@ Phrase qui dit ce qu'elle doit avoir fait à la fin.
 ## Pré-requis
 Ce qui doit être en place avant de commencer (étapes précédentes, comptes).
 
-## Marche à suivre (haut niveau)
-Pas un tutoriel détaillé — des jalons. Pointe vers les ressources officielles.
+## Marche à suivre
+Niveau de détail variable selon l'étape:
+- Étapes "manipulation technique" (2 installer GTM, 6 CMP): pas-à-pas guidé avec captures écran. La candidate n'a pas à improviser sur la mécanique d'édition du code.
+- Étapes "réflexion" (1 audit, 8 dashboard): jalons et orientations, mais la candidate construit le livrable selon son jugement.
+- Étapes intermédiaires (3, 4, 5, 7): mix — instructions claires sur les outils GTM/GA4 à manipuler, mais elle structure son conteneur (nommage, organisation des dossiers GTM, etc.) elle-même.
+Toutes les étapes pointent vers la documentation officielle Google/Axeptio.
 
 ## Livrable attendu
 Ce qu'on doit pouvoir constater à la fin (capture, URL, comportement).
@@ -213,11 +281,11 @@ Liens vers la documentation Google officielle, jamais vers des tutos tiers.
 ### Vue d'ensemble des 8 étapes
 
 1. **Audit SEO** — Mener un audit complet du site Stellaire sur les trois axes (technique, ergonomique, éditorial). Outils suggérés: inspection manuelle, DevTools Chrome, Lighthouse, Screaming Frog (version gratuite jusqu'à 500 URLs), Search Console (une fois le site vérifié), validateur Schema.org. Livrable: un rapport Markdown structuré par axe, avec pour chaque issue: localisation (URL + élément), constat, impact estimé, recommandation actionnable, priorité (P1/P2/P3). Format inspiré d'un livrable agence réel.
-2. **Installer GTM** — Créer compte/conteneur Web, poser le snippet sur le site (Vercel: via edit du HTML + redéploiement), vérifier en preview.
+2. **Installer GTM** — Créer compte/conteneur Web GTM, récupérer l'ID `GTM-XXXXXXX`. Éditer **uniquement le fichier `site/assets/js/integrations.js` via l'interface web de GitHub** (clic fichier → crayon → remplacer le placeholder → "Commit"). Attendre le redéploiement Vercel automatique (~30s). Vérifier en Preview Mode GTM + Tag Assistant que le conteneur charge sur toutes les pages. **Étape la plus accompagnée du cahier**: captures écran obligatoires pour chaque sous-étape, vidéo courte si possible.
 3. **Configurer GA4** — Créer propriété GA4, créer le tag GA4 Configuration dans GTM, vérifier les hits dans Realtime.
 4. **Events e-commerce** — Créer un tag GA4 Event par événement (ou un seul tag paramétré par variable), récupérer les paramètres depuis le `dataLayer`, valider chaque event en DebugView.
 5. **Event custom** — Choisir clic CTA ou scroll 75%, configurer le trigger GTM, envoyer en GA4, valider.
-6. **CMP + Consent Mode v2** — Intégrer une CMP (tarteaucitron, Axeptio ou Cookiebot freemium), configurer le default consent (denied), gérer l'update au consentement, vérifier que les tags GTM respectent le consent state.
+6. **CMP Axeptio + Consent Mode v2** — Créer un projet Axeptio (offre gratuite), configurer une version de cookies pour Stellaire (catégories: analytics, marketing), récupérer le `clientId`. Le poser dans `integrations.js` (même fichier que GTM). Ajouter, **avant le bloc GTM dans `integrations.js`**, le default consent en `denied` (snippet `gtag('consent', 'default', ...)`). Configurer Axeptio pour qu'il appelle `gtag('consent', 'update', ...)` au consentement utilisateur. Vérifier que les tags GTM respectent l'état du consent (le tag GA4 ne fire pas tant que `analytics_storage` est `denied`). Renseigner la page `politique-cookies.html` (vide jusqu'ici) avec un contenu rédigé.
 7. **Vérification bout-en-bout** — Parcourir un parcours complet (browse → add → checkout → purchase) en Preview Mode, croiser Tag Assistant + GA4 DebugView + Realtime, documenter ce qui passe et ce qui rate.
 8. **Dashboard Looker Studio** — Connecter GA4, construire un dashboard 1 page avec: sessions par source/medium, taux de conversion global, top 5 produits par revenue, funnel `view_item → add_to_cart → begin_checkout → purchase`.
 
@@ -233,11 +301,13 @@ Dossier `reference/`, **gitignoré**, contient:
 ## 7. Stack technique
 
 - **Site:** HTML/CSS/JS vanilla, Tailwind via CDN (zéro build, zéro npm), images NASA
-- **Hébergement:** Vercel (static, déploiement automatique depuis GitHub)
+- **Hébergement:** Vercel (static, déploiement automatique sur chaque commit GitHub)
 - **Repo:** GitHub public
-- **Pas de:** framework JS, bundler, backend, base de données, paiement réel
+- **CMP:** Axeptio (offre gratuite), intégrée via `integrations.js`
+- **Édition par la candidate:** interface web GitHub (github.com éditeur en ligne) **uniquement**. Aucun outil local requis.
+- **Pas de:** framework JS, bundler, backend, base de données, paiement réel, IDE local, terminal, clone Git
 
-Ce choix est délibéré: la candidate doit pouvoir cloner, lire, comprendre et modifier le site sans setup. Et l'organisateur ne veut pas maintenir une stack lourde pour un projet one-shot.
+Ce choix est délibéré et aligné sur le profil de la candidate (1.bis): elle peut tout faire depuis son navigateur. L'organisateur ne maintient pas une stack lourde pour un projet one-shot.
 
 ## 8. Livrables et responsabilités
 
