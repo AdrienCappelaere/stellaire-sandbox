@@ -56,6 +56,32 @@
         if (root) root.innerHTML = "<p>Produit introuvable.</p>";
         return;
       }
+      var similar = STELLAIRE_PRODUCTS
+        .filter(function (p) { return p.category === product.category && p.id !== product.id; })
+        .slice(0, 3);
+
+      var featuresHtml = '';
+      if (product.features && product.features.length) {
+        featuresHtml = '<section class="mt-12">'
+          + '<h2 class="text-xl font-semibold mb-4">Caractéristiques techniques</h2>'
+          + '<ul class="grid md:grid-cols-2 gap-x-8 gap-y-2 text-sm text-slate-300">'
+          + product.features.map(function (f) {
+              return '<li class="flex"><span class="text-indigo-400 mr-2">▸</span><span>' + f + '</span></li>';
+            }).join("")
+          + '</ul>'
+          + '</section>';
+      }
+
+      var similarHtml = '';
+      if (similar.length) {
+        similarHtml = '<section class="mt-12">'
+          + '<h2 class="text-xl font-semibold mb-4">Dans la même catégorie</h2>'
+          + '<div class="grid grid-cols-2 md:grid-cols-3 gap-4">'
+          + similar.map(renderProductCard).join("")
+          + '</div>'
+          + '</section>';
+      }
+
       root.innerHTML = ''
         + '<div class="grid md:grid-cols-2 gap-8">'
         +   '<img src="' + product.image + '" alt="' + product.name + '" class="rounded-lg w-full" />'
@@ -65,8 +91,15 @@
         +     '<p class="mt-4 text-slate-300">' + product.longDesc + '</p>'
         +     '<button data-add-to-cart class="btn-primary-default mt-6 px-4 py-2 rounded">Ajouter au panier</button>'
         +     '<button data-testid="coup-de-coeur" class="mt-3 ml-2 px-4 py-2 rounded bg-slate-800 text-slate-200">Voir nos coups de cœur</button>'
+        +     '<div class="mt-6 text-xs text-slate-400 flex flex-wrap gap-x-4 gap-y-1">'
+        +       '<span>🚚 Expédition sous 24h</span>'
+        +       '<span>🔄 Retour gratuit 30j</span>'
+        +       '<span>🛡️ Garantie 2 ans</span>'
+        +     '</div>'
         +   '</div>'
-        + '</div>';
+        + '</div>'
+        + featuresHtml
+        + similarHtml;
 
       var ld = document.createElement("script");
       ld.type = "application/ld+json";
