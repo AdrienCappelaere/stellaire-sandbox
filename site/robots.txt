@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://stellaire.vercel.app/sitemap.xml
