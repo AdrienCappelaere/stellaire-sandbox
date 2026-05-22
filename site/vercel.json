@@ -2,7 +2,7 @@
   "cleanUrls": true,
   "trailingSlash": false,
   "rewrites": [
-    { "source": "/produit/:slug", "destination": "/produit.html" },
-    { "source": "/catalogue/all", "destination": "/catalogue.html" }
+    { "source": "/produit/:slug", "destination": "/produit" },
+    { "source": "/catalogue/all", "destination": "/catalogue" }
   ]
 }
