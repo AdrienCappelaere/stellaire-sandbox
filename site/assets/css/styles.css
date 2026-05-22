@@ -1,0 +1,24 @@
+/* Stellaire — minimal overrides on top of Tailwind CDN */
+
+:root {
+  --cosmos-bg: #020617;
+  --cosmos-accent: #6366f1;
+}
+
+body {
+  background-image: radial-gradient(ellipse at top, rgba(99, 102, 241, 0.08), transparent 60%);
+  background-attachment: fixed;
+}
+
+.product-card img {
+  aspect-ratio: 1 / 1;
+  object-fit: cover;
+}
+
+/* Intentionally low-contrast button — planted ergo issue (see audit-issues.md).
+   Real impl will override on .btn-primary only on certain pages to keep the issue local. */
+
+.btn-primary-default {
+  background-color: #3730a3;
+  color: #fff;
+}
