@@ -22,3 +22,138 @@ body {
   background-color: #3730a3;
   color: #818cf8;  /* light indigo on dark indigo — fails WCAG AA */
 }
+
+/* Article typography — Tailwind CDN ships without @tailwindcss/typography,
+   so the `.prose` class is a no-op. We provide our own article styles below. */
+
+.prose {
+  color: #cbd5e1;
+  font-size: 1.0625rem;
+  line-height: 1.75;
+}
+.prose > * + * { margin-top: 1rem; }
+.prose h1 {
+  font-size: 2.25rem;
+  font-weight: 700;
+  color: #f1f5f9;
+  margin: 0 0 1rem;
+  line-height: 1.15;
+  letter-spacing: -0.01em;
+}
+.prose h2 {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: #e2e8f0;
+  margin: 2.5rem 0 0.75rem;
+  padding-top: 0.5rem;
+  border-top: 1px solid rgba(99, 102, 241, 0.2);
+  letter-spacing: -0.01em;
+}
+.prose h3 {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: #e2e8f0;
+  margin: 2rem 0 0.5rem;
+}
+.prose h4 {
+  font-size: 1.125rem;
+  font-weight: 600;
+  color: #e2e8f0;
+  margin: 1.75rem 0 0.5rem;
+}
+.prose p {
+  margin: 0 0 1rem;
+}
+.prose strong { color: #f1f5f9; font-weight: 600; }
+.prose em { color: #cbd5e1; }
+.prose a {
+  color: #a5b4fc;
+  text-decoration: underline;
+  text-decoration-color: rgba(165, 180, 252, 0.35);
+  text-underline-offset: 3px;
+  transition: color 0.15s;
+}
+.prose a:hover { color: #c7d2fe; text-decoration-color: #c7d2fe; }
+.prose ul, .prose ol {
+  margin: 1rem 0;
+  padding-left: 1.5rem;
+}
+.prose ul { list-style: disc; }
+.prose ol { list-style: decimal; }
+.prose li { margin: 0.4rem 0; }
+.prose li::marker { color: #818cf8; }
+.prose blockquote {
+  border-left: 3px solid #6366f1;
+  padding-left: 1rem;
+  margin: 1.5rem 0;
+  color: #cbd5e1;
+  font-style: italic;
+}
+.prose code {
+  background: rgba(99, 102, 241, 0.15);
+  color: #c7d2fe;
+  padding: 0.1rem 0.4rem;
+  border-radius: 0.25rem;
+  font-size: 0.9em;
+}
+.prose hr {
+  border: none;
+  border-top: 1px solid rgba(99, 102, 241, 0.2);
+  margin: 2.5rem 0;
+}
+
+/* Article hero image */
+.prose-hero {
+  margin: -0.5rem 0 2rem;
+  border-radius: 0.75rem;
+  overflow: hidden;
+  position: relative;
+}
+.prose-hero img {
+  width: 100%;
+  height: 360px;
+  object-fit: cover;
+  display: block;
+}
+.prose-hero figcaption {
+  position: absolute;
+  bottom: 0; left: 0; right: 0;
+  background: linear-gradient(transparent, rgba(2, 6, 23, 0.85));
+  color: #cbd5e1;
+  font-size: 0.75rem;
+  padding: 2rem 1rem 0.75rem;
+}
+
+/* Lead paragraph */
+.prose-lead {
+  font-size: 1.25rem !important;
+  line-height: 1.55;
+  color: #e2e8f0 !important;
+  margin-bottom: 1.5rem !important;
+}
+
+/* Callout */
+.prose-callout {
+  background: linear-gradient(135deg, rgba(99, 102, 241, 0.15), rgba(15, 23, 42, 0.6));
+  border-left: 3px solid #818cf8;
+  padding: 1.25rem 1.5rem;
+  border-radius: 0.5rem;
+  margin: 2rem 0;
+}
+.prose-callout p:last-child { margin-bottom: 0; }
+
+/* Key takeaways grid */
+.prose-takeaways {
+  background: rgba(15, 23, 42, 0.7);
+  border: 1px solid rgba(99, 102, 241, 0.25);
+  padding: 1.5rem;
+  border-radius: 0.5rem;
+  margin: 2.5rem 0;
+}
+.prose-takeaways h3 {
+  margin-top: 0 !important;
+  font-size: 1rem !important;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: #a5b4fc !important;
+}
