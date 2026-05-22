@@ -20,7 +20,7 @@ window.STELLAIRE_PRODUCTS = [
   },
   {
     id: "tel-003", slug: "lunette-astro-90", category: "telescopes",
-    name: "Lunette astronomique 90/900",
+    name: "Lunette astronomique 90/900 apochromatique ED traitée multicouches — édition spéciale Stellaire 2026",
     price: 799.00,
     image: "https://images-assets.nasa.gov/image/PIA21472/PIA21472~thumb.jpg",
     shortDesc: "Optique apochromatique haut de gamme.",
@@ -42,7 +42,7 @@ window.STELLAIRE_PRODUCTS = [
     price: 39.00,
     image: "https://images-assets.nasa.gov/image/PIA22228/PIA22228~thumb.jpg",
     shortDesc: "Oculaire de qualité pour fort grossissement.",
-    longDesc: "Oculaire Plossl 10mm coulant 31.75mm. Traité multicouches.",
+    longDesc: "Oculaire Plossl 10mm 31.75mm.",
     brand: "Stellaire", sku: "STE-OBS-002"
   },
   {

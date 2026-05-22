@@ -20,5 +20,5 @@ body {
 
 .btn-primary-default {
   background-color: #3730a3;
-  color: #fff;
+  color: #818cf8;  /* light indigo on dark indigo — fails WCAG AA */
 }

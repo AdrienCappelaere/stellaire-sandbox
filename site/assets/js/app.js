@@ -15,7 +15,7 @@
 
   function renderProductCard(p) {
     return '<a href="/produit/' + p.slug + '" class="product-card block bg-slate-900 rounded-lg overflow-hidden hover:ring-2 hover:ring-indigo-500" data-product-id="' + p.id + '">'
-      + '<img src="' + p.image + '" alt="' + p.name + '" loading="lazy" />'
+      + '<img src="' + p.image + '" alt="' + (p.id === "dec-001" ? "" : p.name) + '" loading="lazy" />'
       + '<div class="p-3">'
       +   '<h3 class="text-sm font-semibold">' + p.name + '</h3>'
       +   '<p class="text-xs text-slate-400 mt-1">' + p.shortDesc + '</p>'
@@ -86,6 +86,11 @@
           "availability": "https://schema.org/InStock"
         }
       });
+      if (product.slug === "dobson-200mm") {
+        var parsed = JSON.parse(ld.textContent);
+        delete parsed.offers.price;
+        ld.textContent = JSON.stringify(parsed);
+      }
       document.head.appendChild(ld);
 
       stellaire.trackViewItem(product);
