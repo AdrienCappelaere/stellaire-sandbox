@@ -2,7 +2,7 @@
 
 Terrain d'entraînement SEO + GTM/GA4 + CMP + Looker Studio, sous la forme d'une fausse boutique d'astronomie.
 
-🌌 **Démo en ligne :** _(URL Vercel à compléter)_
+🌌 **Démo en ligne :** https://stellaire-sandbox.vercel.app
 
 ## Pour la candidate
 

@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 Disallow: /blog/
-Sitemap: https://stellaire.vercel.app/sitemap.xml
+Sitemap: https://stellaire-sandbox.vercel.app/sitemap.xml
